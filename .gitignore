@@ -40,8 +40,8 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-/android
-/ios
+/android/.gradle
+/ios/.symlinks/
 /macos
 /web
 /windows
@@ -49,3 +49,8 @@ app.*.map.json
 .vscode
 
 firebase.json
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+ios/Runner/Info.plist.origin
+lib/firebase_options_origin.dart
+lib/naver_login_origin.dart

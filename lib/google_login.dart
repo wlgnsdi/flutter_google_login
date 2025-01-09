@@ -2,14 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class SimpleLogin extends StatefulWidget {
-  const SimpleLogin({super.key});
+class GoogleLogin extends StatefulWidget {
+  const GoogleLogin({super.key});
 
   @override
-  State<SimpleLogin> createState() => _SimpleLoginState();
+  State<GoogleLogin> createState() => _GoogleLoginState();
 }
 
-class _SimpleLoginState extends State<SimpleLogin> {
+class _GoogleLoginState extends State<GoogleLogin> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
@@ -23,10 +23,11 @@ class _SimpleLoginState extends State<SimpleLogin> {
       if (googleUser == null) {
         // 사용자가 로그인 취소
         return;
-      } 
+      }
 
       // Google 인증 정보 가져오기
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
 
       // Firebase 에서 Google 사용자를 인증하기 위해서 GoogleAuthProvider.credential() 사용하여
       // Firebase 인증자격(AuthCredential) 생성

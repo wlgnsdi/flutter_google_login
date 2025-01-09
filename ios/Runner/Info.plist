@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CADisableMinimumFrameDurationOnPhone</key>
+		<true />
+		<key>CFBundleDevelopmentRegion</key>
+		<string>$(DEVELOPMENT_LANGUAGE)</string>
+		<key>CFBundleDisplayName</key>
+		<string>Flutter Google Login</string>
+		<key>CFBundleExecutable</key>
+		<string>$(EXECUTABLE_NAME)</string>
+		<key>CFBundleIdentifier</key>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundleName</key>
+		<string>flutter_google_login</string>
+		<key>CFBundlePackageType</key>
+		<string>APPL</string>
+		<key>CFBundleShortVersionString</key>
+		<string>$(FLUTTER_BUILD_NAME)</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>CFBundleURLTypes</key>
+		<array>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>com.googleusercontent.apps.638086558878-9iiooov50gp9o6o45ufrt4jfbrad37tf</string>
+				</array>
+			</dict>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>kakao090069b7359414c3580f1e2c54c891c4</string>
+				</array>
+			</dict>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>app-1-638086558878-ios-ab7f6c2c9def4dd027f78f</string>
+				</array>
+			</dict>
+			<!-- Naver Login start -->
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>ryuHoonNaverLogin</string>
+				</array>
+			</dict>
+			<!-- Naver Login end-->
+		</array>
+		<key>CFBundleVersion</key>
+		<string>$(FLUTTER_BUILD_NUMBER)</string>
+		<key>LSRequiresIPhoneOS</key>
+		<true />
+		<key>UIApplicationSupportsIndirectInputEvents</key>
+		<true />
+		<key>UILaunchStoryboardName</key>
+		<string>LaunchScreen</string>
+		<key>UIMainStoryboardFile</key>
+		<string>Main</string>
+		<key>UISupportedInterfaceOrientations</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+			<string>UIInterfaceOrientationLandscapeLeft</string>
+			<string>UIInterfaceOrientationLandscapeRight</string>
+		</array>
+		<key>UISupportedInterfaceOrientations~ipad</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+			<string>UIInterfaceOrientationPortraitUpsideDown</string>
+			<string>UIInterfaceOrientationLandscapeLeft</string>
+			<string>UIInterfaceOrientationLandscapeRight</string>
+		</array>
+
+		<!-- Naver Login start -->
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>naversearchapp</string>
+			<string>naversearchthirdlogin</string>
+		</array>
+		<key>naverServiceAppUrlScheme</key>
+		<string>ryuHoonNaverLogin</string>
+		<key>naverConsumerKey</key>
+		<string>nIzLpdIWE4erjq5mW4Xk</string>
+		<key>naverConsumerSecret</key>
+		<string>8WvxiPI8bG</string>
+		<key>naverServiceAppName</key>
+		<string>login test</string>
+		<!-- Naver Login end -->
+
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>NSAllowsArbitraryLoads</key>
+			<true />
+			<!-- Naver Login start -->
+			<key>NSExceptionDomains</key>
+			<dict>
+				<key>naver.com</key>
+				<dict>
+					<key>NSExceptionRequiresForwardSecrecy</key>
+					<false />
+					<key>NSIncludesSubdomains</key>
+					<true />
+				</dict>
+				<key>naver.net</key>
+				<dict>
+					<key>NSExceptionRequiresForwardSecrecy</key>
+					<false />
+					<key>NSIncludesSubdomains</key>
+					<true />
+				</dict>
+			</dict>
+			<!-- Naver Login end -->
+		</dict>
+	</dict>
+</plist>
