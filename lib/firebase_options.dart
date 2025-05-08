@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -46,35 +47,35 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    authDomain: '',
-    databaseURL: '',
-    storageBucket: '',
-    measurementId: '',
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.get('FIREBASE_WEB_API_KEY'),
+    appId: dotenv.get('FIREBASE_WEB_APP_ID'),
+    messagingSenderId: dotenv.get('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: dotenv.get('FIREBASE_PROJECT_ID'),
+    authDomain: dotenv.get('FIREBASE_AUTH_DOMAIN'),
+    databaseURL: dotenv.get('FIREBASE_DATABASE_URL'),
+    storageBucket: dotenv.get('FIREBASE_STORAGE_BUCKET'),
+    measurementId: dotenv.get('FIREBASE_MEASUREMENT_ID'),
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    databaseURL: '',
-    storageBucket: '',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.get('FIREBASE_AOS_API_KEY'),
+    appId: dotenv.get('FIREBASE_AOS_APP_ID'),
+    messagingSenderId: dotenv.get('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: dotenv.get('FIREBASE_PROJECT_ID'),
+    databaseURL: dotenv.get('FIREBASE_DATABASE_URL'),
+    storageBucket: dotenv.get('FIREBASE_STORAGE_BUCKET'),
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    databaseURL: '',
-    storageBucket: '',
-    androidClientId: '',
-    iosClientId: '',
-    iosBundleId: '',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.get('FIREBASE_IOS_API_KEY'),
+    appId: dotenv.get('FIREBASE_IOS_APP_ID'),
+    messagingSenderId: dotenv.get('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: dotenv.get('FIREBASE_PROJECT_ID'),
+    databaseURL: dotenv.get('FIREBASE_DATABASE_URL'),
+    storageBucket: dotenv.get('FIREBASE_STORAGE_BUCKET'),
+    androidClientId: dotenv.get('FIREBASE_IOS_ANDROID_CLIENT_ID'),
+    iosClientId: dotenv.get('FIREBASE_IOS_CLIENT_ID'),
+    iosBundleId: dotenv.get('FIREBASE_IOS_BUNDLE_ID'),
   );
 }

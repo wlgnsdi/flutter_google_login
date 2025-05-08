@@ -62,7 +62,7 @@ class _GoogleLoginState extends State<GoogleLogin> {
         });
       }
     } catch (e) {
-      print('Google Sign-In Error: $e');
+      debugPrint('Google Sign-In Error: $e');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('로그인에 실패했습니다. 다시 시도해주세요.')),
       );
@@ -106,14 +106,14 @@ class _GoogleLoginState extends State<GoogleLogin> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Google Sign-In : ${currentUser?.displayName ?? ''}',
+              '구글 로그인 : ${currentUser?.displayName ?? ''}',
               style: TextStyle(fontSize: 24),
             ),
             const SizedBox(height: 20),
             !isLogin
                 ? ElevatedButton(
                     onPressed: signInWithGoogle,
-                    child: const Text('Google 로그인'),
+                    child: const Text('로그인'),
                   )
                 : ElevatedButton(
                     onPressed: signOut,

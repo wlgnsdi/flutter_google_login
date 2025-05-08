@@ -98,7 +98,6 @@
 		<key>naverServiceAppName</key>
 		<string>login test</string>
 		<!-- Naver Login end -->
-
 		<key>NSAppTransportSecurity</key>
 		<dict>
 			<key>NSAllowsArbitraryLoads</key>

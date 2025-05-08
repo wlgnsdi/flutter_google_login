@@ -54,3 +54,4 @@ ios/Runner/GoogleService-Info.plist
 ios/Runner/Info.plist.origin
 lib/firebase_options_origin.dart
 lib/naver_login_origin.dart
+.env

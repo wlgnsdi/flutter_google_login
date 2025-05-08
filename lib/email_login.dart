@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class EmailLogin extends StatefulWidget {
   const EmailLogin({super.key});
@@ -11,7 +11,6 @@ class EmailLogin extends StatefulWidget {
 }
 
 class _EmailLoginState extends State<EmailLogin> {
-  
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> signUp(String email, String password) async {
     try {
@@ -20,7 +19,7 @@ class _EmailLoginState extends State<EmailLogin> {
         password: password,
       );
     } catch (e) {
-      print("Error: $e");
+      print("에러: $e");
     }
   }
 
@@ -30,9 +29,9 @@ class _EmailLoginState extends State<EmailLogin> {
         email: email,
         password: password,
       );
-      print("User logged in successfully");
+      print("로그인 성공");
     } catch (e) {
-      print("Error: $e");
+      print("에러: $e");
     }
   }
 

@@ -55,28 +55,28 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Phone Authentication")),
+      appBar: AppBar(title: Text("전화번호 인증")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _phoneController,
-              decoration: InputDecoration(labelText: "Phone Number"),
+              decoration: InputDecoration(labelText: "전화 번호"),
               keyboardType: TextInputType.phone,
             ),
             ElevatedButton(
               onPressed: _sendOtp,
-              child: Text("Send OTP"),
+              child: Text("문자 인증 요청"),
             ),
             TextField(
               controller: _otpController,
-              decoration: InputDecoration(labelText: "Enter OTP"),
+              decoration: InputDecoration(labelText: "문자 인증 번호"),
               keyboardType: TextInputType.number,
             ),
             ElevatedButton(
               onPressed: _verifyOtp,
-              child: Text("Verify OTP"),
+              child: Text("인증 처리"),
             ),
           ],
         ),

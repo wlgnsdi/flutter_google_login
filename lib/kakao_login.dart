@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 
 class KakaoLogin extends StatefulWidget {
@@ -18,7 +19,7 @@ class _KakaoLoginState extends State<KakaoLogin> {
     try {
       OAuthToken token = await UserApi.instance.loginWithKakaoAccount();
 
-      var provider = OAuthProvider('oidc.kakao_login'); // 제공업체 id
+      var provider = OAuthProvider(dotenv.get('KAKAO_OIDC_ID'));
       var credential = provider.credential(
         idToken: token.idToken,
         accessToken: token.accessToken,
@@ -34,7 +35,7 @@ class _KakaoLoginState extends State<KakaoLogin> {
         });
       }
     } catch (error) {
-      print('카카오계정으로 로그인 실패 $error');
+      debugPrint('카카오계정으로 로그인 실패 $error');
     }
   }
 
@@ -52,12 +53,20 @@ class _KakaoLoginState extends State<KakaoLogin> {
     return Center(
         child: !isLogin
             ? Column(children: [
-                TextButton(onPressed: _kakaoLogin, child: Text('Kakao Login', style: TextStyle(fontSize: 30, color: Colors.white)))
+                TextButton(
+                    onPressed: _kakaoLogin,
+                    child: Text('카카오 로그인',
+                        style: TextStyle(fontSize: 30, color: Colors.white)))
               ])
             : Column(
                 children: [
-                  Text('Kakao User Info : ${name}'),
-                  TextButton(onPressed: _signOut, child: Text('Kakao Logout', style: TextStyle(fontSize: 20),)),
+                  Text('카카오 유저 정보 : $name'),
+                  TextButton(
+                      onPressed: _signOut,
+                      child: Text(
+                        '카카오 로그아웃',
+                        style: TextStyle(fontSize: 20),
+                      )),
                 ],
               ));
   }

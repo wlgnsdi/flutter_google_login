@@ -12,24 +12,25 @@ class FirestoreTest extends StatefulWidget {
 }
 
 class _FirestoreTestState extends State<FirestoreTest> {
-  String configText = 'Default Config';
+  String _configText = 'Default Config';
+  final String _chat = 'chats';
+  final _app = FirebaseFirestore.instance;
 
   Future<void> addData() async {
     try {
-      CollectionReference chats =
-          FirebaseFirestore.instance.collection('chats');
+      CollectionReference chats = _app.collection(_chat);
       await chats.add({
         'title': 'Chat Room 1',
         'created_at': DateTime.now(),
       });
-      debugPrint('Data added successfully');
+      debugPrint('데이터 추가 완료');
     } catch (e) {
-      debugPrint('Failed to add data: $e');
+      debugPrint('데이터 추가 실패 : $e');
     }
   }
 
   Future<void> fetchData() async {
-    CollectionReference chats = FirebaseFirestore.instance.collection('chats');
+    CollectionReference chats = _app.collection(_chat);
     QuerySnapshot snapshot = await chats.get();
     snapshot.docs.forEach((doc) {
       print(doc.data());
@@ -37,15 +38,16 @@ class _FirestoreTestState extends State<FirestoreTest> {
   }
 
   Future<void> updateData(String docId) async {
-    CollectionReference chats = FirebaseFirestore.instance.collection('chats');
+    CollectionReference chats = _app.collection(_chat);
     await chats.doc(docId).update({'title': 'Updated Chat Room'});
   }
 
   Future<void> _fetchRemoteConfig() async {
     final remoteConfig = FirebaseRemoteConfig.instance;
     await remoteConfig.fetchAndActivate();
+
     setState(() {
-      configText = remoteConfig.getString('testaa');
+      _configText = remoteConfig.getString('testaa');
     });
   }
 
@@ -57,30 +59,28 @@ class _FirestoreTestState extends State<FirestoreTest> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          ElevatedButton(
-            onPressed: addData,
-            child: Text('Add Data'),
-          ),
-          ElevatedButton(
-            onPressed: fetchData,
-            child: Text('Fetch Data'),
-          ),
-          ElevatedButton(
-            onPressed: () => updateData('docId'),
-            child: Text('Update Data'),
-          ),
-          TextButton(
-            onPressed: () {
-              throw Exception();
-            },
-            child: const Text("Throw Test Exception"),
-          ),
-          Text(configText)
-        ],
-      ),
+    return Column(
+      children: [
+        ElevatedButton(
+          onPressed: addData,
+          child: Text('Add Data'),
+        ),
+        ElevatedButton(
+          onPressed: fetchData,
+          child: Text('Fetch Data'),
+        ),
+        ElevatedButton(
+          onPressed: () => updateData('docId'),
+          child: Text('Update Data'),
+        ),
+        TextButton(
+          onPressed: () {
+            throw Exception();
+          },
+          child: const Text("Throw Test Exception"),
+        ),
+        Text(_configText)
+      ],
     );
   }
 }
